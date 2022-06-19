@@ -1,9 +1,11 @@
-# CRA with Storybook without preset-create-react-app
+# CRA with Storybook without preset
 
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
 
-## How was Storybook initialized
+## How Storybook was initialized
+
+To list available options, start `sb init` with the `--help` option:
 
 ```shell
 npx sb init --help
@@ -24,13 +26,16 @@ Options:
   -h, --help                                       display help for command
 ```
 
-Ran sb init with following options:
+Storybook was added using `sb init` with the following options. This prevents
+`sb init` from automatically detecting the application type (in this case CRA).
+We explicitly ask for application type react and the webpack5 builder.
 
 ```shell
 npx sb init --skip-install --type react --builder webpack5
 ```
 
-The added the following overrides in `package.json`:
+After this I had to add the following overrides to `package.json` to overcome
+dependency conflicts:
 
 ```json
 {
@@ -53,4 +58,3 @@ npm run storybook
 ```shell
 npm start
 ```
-
